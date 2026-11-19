@@ -1,0 +1,126 @@
+/*
+  Tailwind CSS v4 SIN "preflight" (reset): los módulos que conservan su CSS original
+  dependen de los estilos por defecto del navegador, igual que en los HTML de origen.
+  Todas las utilidades llevan el prefijo "tw:" (p. ej. tw:flex) para que nunca choquen
+  con las clases propias de los HTML originales (.card, .container, .hidden…).
+*/
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme) prefix(tw);
+@import 'tailwindcss/utilities.css' layer(utilities) prefix(tw) source(none);
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Solo se escanean los archivos escritos con Tailwind */
+@source '../App.vue';
+@source '../components';
+@source '../views';
+@source '../modules/rutas';
+@source '../modules/sap-rpa';
+@source '../modules/ts-vitest';
+
+/* ── Paletas (copiadas tal cual de los originales) ────────────────────────── */
+
+/* Home (_Centro_de_Mando.html) — oscuro por defecto, claro con data-theme="light" */
+.theme-cm {
+  --cm-bg: #15120e;
+  --cm-bg-elev: #1c1710;
+  --cm-bg-card: #211b14;
+  --cm-border: rgba(255, 157, 61, 0.18);
+  --cm-border-soft: rgba(255, 255, 255, 0.07);
+  --cm-text: #f3ead9;
+  --cm-text-dim: #b3a48d;
+  --cm-text-faint: #7d7261;
+  --cm-accent: #ff9d3d;
+  --cm-accent-soft: rgba(255, 157, 61, 0.13);
+  --cm-teal: #3ec9b0;
+  --cm-teal-soft: rgba(62, 201, 176, 0.13);
+  --cm-shadow: 0 16px 48px -16px rgba(0, 0, 0, 0.6);
+}
+.theme-cm[data-theme='light'] {
+  --cm-bg: #fbf6ee;
+  --cm-bg-elev: #f4ead9;
+  --cm-bg-card: #ffffff;
+  --cm-border: rgba(201, 111, 31, 0.22);
+  --cm-border-soft: rgba(34, 28, 20, 0.09);
+  --cm-text: #241d14;
+  --cm-text-dim: #5e5240;
+  --cm-text-faint: #8a7d68;
+  --cm-accent: #c96f1f;
+  --cm-accent-soft: rgba(201, 111, 31, 0.10);
+  --cm-teal: #16876f;
+  --cm-teal-soft: rgba(22, 135, 111, 0.10);
+  --cm-shadow: 0 12px 32px -16px rgba(60, 40, 10, 0.20);
+}
+
+/* Rutas con progreso (*-ruta.html) — siguen el tema del sistema */
+.theme-ruta {
+  --ruta-bg: #f2f5f9; --ruta-card: #fff; --ruta-ink: #16202e; --ruta-mut: #5a6778;
+  --ruta-line: #d9e0ea; --ruta-acc: #5b34c7; --ruta-ok: #0e8a6b; --ruta-bad: #b3261e; --ruta-code: #eceff5;
+}
+@media (prefers-color-scheme: dark) {
+  .theme-ruta {
+    --ruta-bg: #10151d; --ruta-card: #18202b; --ruta-ink: #e8edf4; --ruta-mut: #9aa7b8;
+    --ruta-line: #2a3544; --ruta-acc: #a98bff; --ruta-ok: #3dd0a6; --ruta-bad: #ff8a80; --ruta-code: #222c3a;
+  }
+}
+
+/* SAP y RPA (SAP-RPA.html) — sigue el tema del sistema */
+.theme-sap {
+  --sap-bg: #f4f6f9; --sap-surface: #ffffff; --sap-ink: #1a2330; --sap-muted: #566272;
+  --sap-line: #d9dee6; --sap-accent: #0a5ca8; --sap-accent-soft: #e3eefa;
+}
+@media (prefers-color-scheme: dark) {
+  .theme-sap:not([data-theme='light']) {
+    --sap-bg: #10161e; --sap-surface: #18212c; --sap-ink: #e8edf3; --sap-muted: #9aa7b6;
+    --sap-line: #2a3646; --sap-accent: #6db3f2; --sap-accent-soft: #1c2f44;
+  }
+}
+
+/* ── Tokens de Tailwind que apuntan a esas paletas ───────────────────────── */
+@theme inline {
+  --color-cm-bg: var(--cm-bg);
+  --color-cm-elev: var(--cm-bg-elev);
+  --color-cm-card: var(--cm-bg-card);
+  --color-cm-border: var(--cm-border);
+  --color-cm-border-soft: var(--cm-border-soft);
+  --color-cm-text: var(--cm-text);
+  --color-cm-dim: var(--cm-text-dim);
+  --color-cm-faint: var(--cm-text-faint);
+  --color-cm-accent: var(--cm-accent);
+  --color-cm-accent-soft: var(--cm-accent-soft);
+  --color-cm-teal: var(--cm-teal);
+  --color-cm-teal-soft: var(--cm-teal-soft);
+
+  --color-ruta-bg: var(--ruta-bg);
+  --color-ruta-card: var(--ruta-card);
+  --color-ruta-ink: var(--ruta-ink);
+  --color-ruta-mut: var(--ruta-mut);
+  --color-ruta-line: var(--ruta-line);
+  --color-ruta-acc: var(--ruta-acc);
+  --color-ruta-ok: var(--ruta-ok);
+  --color-ruta-bad: var(--ruta-bad);
+  --color-ruta-code: var(--ruta-code);
+
+  --color-sap-bg: var(--sap-bg);
+  --color-sap-surface: var(--sap-surface);
+  --color-sap-ink: var(--sap-ink);
+  --color-sap-muted: var(--sap-muted);
+  --color-sap-line: var(--sap-line);
+  --color-sap-accent: var(--sap-accent);
+  --color-sap-accent-soft: var(--sap-accent-soft);
+
+  --font-cm-display: 'Bricolage Grotesque', sans-serif;
+  --font-cm-body: 'Manrope', sans-serif;
+  --font-cm-mono: 'JetBrains Mono', monospace;
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-segoe: 'Segoe UI', system-ui, sans-serif;
+  --font-sap: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --font-cascadia: Cascadia Code, Consolas, monospace;
+}
+
+@layer base {
+  /* #app no debe crear una caja extra: los módulos esperan sus elementos directamente en <body> */
+  #app { display: contents; }
+
+  /* Equivalente a "* { box-sizing: border-box }" de los originales, para las vistas en Tailwind */
+  .tw-page * { box-sizing: border-box; }
+}
