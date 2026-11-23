@@ -20,36 +20,40 @@
 
 /* ── Paletas (copiadas tal cual de los originales) ────────────────────────── */
 
-/* Home (_Centro_de_Mando.html) — oscuro por defecto, claro con data-theme="light" */
+/* Home (_Centro_de_Mando.html) — Modern Tech Command Center Theme */
 .theme-cm {
-  --cm-bg: #15120e;
-  --cm-bg-elev: #1c1710;
-  --cm-bg-card: #211b14;
-  --cm-border: rgba(255, 157, 61, 0.18);
-  --cm-border-soft: rgba(255, 255, 255, 0.07);
-  --cm-text: #f3ead9;
-  --cm-text-dim: #b3a48d;
-  --cm-text-faint: #7d7261;
-  --cm-accent: #ff9d3d;
-  --cm-accent-soft: rgba(255, 157, 61, 0.13);
-  --cm-teal: #3ec9b0;
-  --cm-teal-soft: rgba(62, 201, 176, 0.13);
-  --cm-shadow: 0 16px 48px -16px rgba(0, 0, 0, 0.6);
+  --cm-bg: #090d16;
+  --cm-bg-elev: #0f172a;
+  --cm-bg-card: rgba(15, 23, 42, 0.75);
+  --cm-bg-card-hover: rgba(22, 33, 56, 0.9);
+  --cm-border: rgba(99, 102, 241, 0.22);
+  --cm-border-soft: rgba(255, 255, 255, 0.08);
+  --cm-border-strong: rgba(255, 255, 255, 0.16);
+  --cm-text: #f8fafc;
+  --cm-text-dim: #94a3b8;
+  --cm-text-faint: #64748b;
+  --cm-accent: #6366f1;
+  --cm-accent-soft: rgba(99, 102, 241, 0.15);
+  --cm-teal: #06b6d4;
+  --cm-teal-soft: rgba(6, 182, 212, 0.15);
+  --cm-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 .theme-cm[data-theme='light'] {
-  --cm-bg: #fbf6ee;
-  --cm-bg-elev: #f4ead9;
-  --cm-bg-card: #ffffff;
-  --cm-border: rgba(201, 111, 31, 0.22);
-  --cm-border-soft: rgba(34, 28, 20, 0.09);
-  --cm-text: #241d14;
-  --cm-text-dim: #5e5240;
-  --cm-text-faint: #8a7d68;
-  --cm-accent: #c96f1f;
-  --cm-accent-soft: rgba(201, 111, 31, 0.10);
-  --cm-teal: #16876f;
-  --cm-teal-soft: rgba(22, 135, 111, 0.10);
-  --cm-shadow: 0 12px 32px -16px rgba(60, 40, 10, 0.20);
+  --cm-bg: #f8fafc;
+  --cm-bg-elev: #ffffff;
+  --cm-bg-card: rgba(255, 255, 255, 0.9);
+  --cm-bg-card-hover: #ffffff;
+  --cm-border: rgba(99, 102, 241, 0.25);
+  --cm-border-soft: rgba(15, 23, 42, 0.08);
+  --cm-border-strong: rgba(15, 23, 42, 0.16);
+  --cm-text: #0f172a;
+  --cm-text-dim: #475569;
+  --cm-text-faint: #94a3b8;
+  --cm-accent: #4f46e5;
+  --cm-accent-soft: rgba(79, 70, 229, 0.09);
+  --cm-teal: #0891b2;
+  --cm-teal-soft: rgba(8, 145, 178, 0.09);
+  --cm-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.06);
 }
 
 /* Rutas con progreso (*-ruta.html) — siguen el tema del sistema */
@@ -83,6 +87,8 @@
   --color-cm-card: var(--cm-bg-card);
   --color-cm-border: var(--cm-border);
   --color-cm-border-soft: var(--cm-border-soft);
+  --color-cm-border-strong: var(--cm-border-strong);
+  --color-cm-card-hover: var(--cm-bg-card-hover);
   --color-cm-text: var(--cm-text);
   --color-cm-dim: var(--cm-text-dim);
   --color-cm-faint: var(--cm-text-faint);
