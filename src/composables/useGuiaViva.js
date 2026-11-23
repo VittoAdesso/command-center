@@ -30,23 +30,31 @@ export function useGuiaViva(
   usePageEnv({
     title,
     htmlClass: [scopeClass],
-    bodyAttrs: { 'data-theme': 'dark' },
   })
 
   useModuleScript(rootRef, ({ root, on, onCleanup }) => {
     const scope = root || document
 
-    // 1. Conmutador de tema claro / oscuro
+    // 1. Conmutador de tema claro / oscuro sincronizado globalmente
     const tt = scope.querySelector('#themeToggle')
     if (tt) {
-      const initial = themeStorageKey ? localStorage.getItem(themeStorageKey) || 'dark' : 'dark'
-      document.body.setAttribute('data-theme', initial)
-      tt.textContent = initial === 'dark' ? '🌙' : '☀️'
+      const active = localStorage.getItem('cm-theme') || localStorage.getItem('cm-index-theme') || (themeStorageKey ? localStorage.getItem(themeStorageKey) : null) || 'dark'
+      document.documentElement.setAttribute('data-theme', active)
+      document.body.setAttribute('data-theme', active)
+      if (active === 'dark') document.documentElement.classList.add('dark')
+      else document.documentElement.classList.remove('dark')
+      tt.textContent = active === 'dark' ? '🌙' : '☀️'
 
       on(tt, 'click', () => {
-        const next = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+        const curr = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+        const next = curr === 'dark' ? 'light' : 'dark'
+        document.documentElement.setAttribute('data-theme', next)
         document.body.setAttribute('data-theme', next)
+        if (next === 'dark') document.documentElement.classList.add('dark')
+        else document.documentElement.classList.remove('dark')
         tt.textContent = next === 'dark' ? '🌙' : '☀️'
+        localStorage.setItem('cm-theme', next)
+        localStorage.setItem('cm-index-theme', next)
         if (themeStorageKey) {
           localStorage.setItem(themeStorageKey, next)
         }

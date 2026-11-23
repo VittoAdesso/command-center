@@ -9,7 +9,7 @@
 @import 'tailwindcss/utilities.css' layer(utilities) prefix(tw) source(none);
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Solo se escanean los archivos escritos con Tailwind */
+/* Archivos escaneados por Tailwind */
 @source '../App.vue';
 @source '../components';
 @source '../views';
@@ -18,14 +18,15 @@
 @source '../modules/ts-vitest';
 @source '../modules/power-apps-alto-volumen';
 
-/* ── Paletas (copiadas tal cual de los originales) ────────────────────────── */
+/* ── Sistema de Diseño Global Unificado (Centro de Mando) ───────────────── */
 
-/* Home (_Centro_de_Mando.html) — Modern Tech Command Center Theme */
+:root,
+[data-theme='dark'],
 .theme-cm {
   --cm-bg: #090d16;
   --cm-bg-elev: #0f172a;
-  --cm-bg-card: rgba(15, 23, 42, 0.75);
-  --cm-bg-card-hover: rgba(22, 33, 56, 0.9);
+  --cm-bg-card: rgba(17, 24, 39, 0.75);
+  --cm-bg-card-hover: rgba(30, 41, 59, 0.85);
   --cm-border: rgba(99, 102, 241, 0.22);
   --cm-border-soft: rgba(255, 255, 255, 0.08);
   --cm-border-strong: rgba(255, 255, 255, 0.16);
@@ -38,11 +39,13 @@
   --cm-teal-soft: rgba(6, 182, 212, 0.15);
   --cm-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
+
+[data-theme='light'],
 .theme-cm[data-theme='light'] {
   --cm-bg: #f8fafc;
   --cm-bg-elev: #ffffff;
-  --cm-bg-card: rgba(255, 255, 255, 0.9);
-  --cm-bg-card-hover: #ffffff;
+  --cm-bg-card: rgba(255, 255, 255, 0.95);
+  --cm-bg-card-hover: #f1f5f9;
   --cm-border: rgba(99, 102, 241, 0.25);
   --cm-border-soft: rgba(15, 23, 42, 0.08);
   --cm-border-strong: rgba(15, 23, 42, 0.16);
@@ -56,31 +59,189 @@
   --cm-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.06);
 }
 
-/* Rutas con progreso (*-ruta.html) — siguen el tema del sistema */
+/* ── Unificación de Rutas con Progreso (*-ruta.html) ─────────────────────── */
 .theme-ruta {
-  --ruta-bg: #f2f5f9; --ruta-card: #fff; --ruta-ink: #16202e; --ruta-mut: #5a6778;
-  --ruta-line: #d9e0ea; --ruta-acc: #5b34c7; --ruta-ok: #0e8a6b; --ruta-bad: #b3261e; --ruta-code: #eceff5;
-}
-@media (prefers-color-scheme: dark) {
-  .theme-ruta {
-    --ruta-bg: #10151d; --ruta-card: #18202b; --ruta-ink: #e8edf4; --ruta-mut: #9aa7b8;
-    --ruta-line: #2a3544; --ruta-acc: #a98bff; --ruta-ok: #3dd0a6; --ruta-bad: #ff8a80; --ruta-code: #222c3a;
-  }
+  --ruta-bg: var(--cm-bg);
+  --ruta-card: var(--cm-bg-card);
+  --ruta-ink: var(--cm-text);
+  --ruta-mut: var(--cm-dim);
+  --ruta-line: var(--cm-border-soft);
+  --ruta-acc: var(--cm-accent);
+  --ruta-ok: #10b981;
+  --ruta-bad: #ef4444;
+  --ruta-code: var(--cm-bg-elev);
 }
 
-/* SAP y RPA (SAP-RPA.html) — sigue el tema del sistema */
+/* ── Unificación de SAP y RPA ────────────────────────────────────────────── */
 .theme-sap {
-  --sap-bg: #f4f6f9; --sap-surface: #ffffff; --sap-ink: #1a2330; --sap-muted: #566272;
-  --sap-line: #d9dee6; --sap-accent: #0a5ca8; --sap-accent-soft: #e3eefa;
-}
-@media (prefers-color-scheme: dark) {
-  .theme-sap:not([data-theme='light']) {
-    --sap-bg: #10161e; --sap-surface: #18212c; --sap-ink: #e8edf3; --sap-muted: #9aa7b6;
-    --sap-line: #2a3646; --sap-accent: #6db3f2; --sap-accent-soft: #1c2f44;
-  }
+  --sap-bg: var(--cm-bg);
+  --sap-surface: var(--cm-bg-card);
+  --sap-ink: var(--cm-text);
+  --sap-muted: var(--cm-dim);
+  --sap-line: var(--cm-border-soft);
+  --sap-accent: #0284c7;
+  --sap-accent-soft: rgba(2, 132, 199, 0.12);
 }
 
-/* ── Tokens de Tailwind que apuntan a esas paletas ───────────────────────── */
+/* ── Armonización Universal de Módulos Scoped ────────────────────────────── */
+html.mod-power-platform,
+html.mod-power-automate,
+html.mod-power-bi,
+html.mod-excel,
+html.mod-copilot,
+html.mod-pad-ninja,
+html.mod-briefing-copilot,
+html.mod-especialista-copilot,
+html.mod-migracion-uipath,
+html.mod-arquitectura-m365 {
+  --bg: #090d16 !important;
+  --bg2: #0f172a !important;
+  --bg-color: #090d16 !important;
+  --bg-elev: #0f172a !important;
+  --bg-card: #111827 !important;
+  --bg-card-hover: #1e293b !important;
+  --surface: #111827 !important;
+  --surface-2: #0f172a !important;
+  --surface2: #1e293b !important;
+  --surface-hover: #1e293b !important;
+  --border: rgba(99, 102, 241, 0.22) !important;
+  --border-soft: rgba(255, 255, 255, 0.08) !important;
+  --border2: rgba(99, 102, 241, 0.22) !important;
+  --text: #f8fafc !important;
+  --text-main: #f8fafc !important;
+  --ink: #f8fafc !important;
+  --ink-soft: #cbd5e1 !important;
+  --text-dim: #94a3b8 !important;
+  --text-muted: #94a3b8 !important;
+  --muted: #94a3b8 !important;
+  --text-faint: #64748b !important;
+  --shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.mod-power-platform[data-theme='light'],
+html.mod-power-platform [data-theme='light'],
+html.mod-power-automate[data-theme='light'],
+html.mod-power-automate [data-theme='light'],
+html.mod-power-bi[data-theme='light'],
+html.mod-power-bi [data-theme='light'],
+html.mod-excel[data-theme='light'],
+html.mod-excel [data-theme='light'],
+html.mod-copilot[data-theme='light'],
+html.mod-copilot [data-theme='light'],
+html.mod-pad-ninja[data-theme='light'],
+html.mod-pad-ninja [data-theme='light'],
+html.mod-briefing-copilot[data-theme='light'],
+html.mod-briefing-copilot [data-theme='light'],
+html.mod-especialista-copilot[data-theme='light'],
+html.mod-especialista-copilot [data-theme='light'],
+html.mod-migracion-uipath[data-theme='light'],
+html.mod-migracion-uipath [data-theme='light'],
+html.mod-arquitectura-m365[data-theme='light'],
+html.mod-arquitectura-m365 [data-theme='light'] {
+  --bg: #f8fafc !important;
+  --bg2: #ffffff !important;
+  --bg-color: #f8fafc !important;
+  --bg-elev: #f1f5f9 !important;
+  --bg-card: #ffffff !important;
+  --bg-card-hover: #f1f5f9 !important;
+  --surface: #ffffff !important;
+  --surface-2: #f1f5f9 !important;
+  --surface2: #f1f5f9 !important;
+  --surface-hover: #f1f5f9 !important;
+  --border: rgba(99, 102, 241, 0.25) !important;
+  --border-soft: rgba(15, 23, 42, 0.08) !important;
+  --border2: rgba(99, 102, 241, 0.25) !important;
+  --text: #0f172a !important;
+  --text-main: #0f172a !important;
+  --ink: #0f172a !important;
+  --ink-soft: #334155 !important;
+  --text-dim: #475569 !important;
+  --text-muted: #475569 !important;
+  --muted: #64748b !important;
+  --text-faint: #94a3b8 !important;
+  --shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* ── Estandarización de Topbars y Navegación ────────────────────────────── */
+.topbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 40 !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  background: color-mix(in srgb, var(--bg) 82%, transparent) !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+}
+
+.topbar-inner {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 12px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+}
+
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-family: var(--font-cm-display, 'Bricolage Grotesque', sans-serif) !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  color: var(--text) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.brand .badge-fam {
+  font-family: var(--font-cm-mono, 'JetBrains Mono', monospace) !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  color: var(--text-faint) !important;
+  border: 1px solid var(--border-soft) !important;
+  background: var(--bg-elev) !important;
+  padding: 3px 8px !important;
+  border-radius: 99px !important;
+  letter-spacing: 0.04em !important;
+}
+
+.brand .badge-ver {
+  font-family: var(--font-cm-mono, 'JetBrains Mono', monospace) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: var(--teal) !important;
+  background: var(--teal-soft) !important;
+  padding: 3px 8px !important;
+  border-radius: 99px !important;
+  letter-spacing: 0.03em !important;
+}
+
+.topbar .theme-btn,
+button.theme-btn {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-soft) !important;
+  color: var(--text) !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 15px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+.topbar .theme-btn:hover,
+button.theme-btn:hover {
+  border-color: var(--accent) !important;
+  transform: scale(1.06) !important;
+}
+
+/* ── Tokens de Tailwind ─────────────────────────────────────────────────── */
 @theme inline {
   --color-cm-bg: var(--cm-bg);
   --color-cm-elev: var(--cm-bg-elev);
@@ -131,15 +292,15 @@
   --font-cm-body: 'Manrope', sans-serif;
   --font-cm-mono: 'JetBrains Mono', monospace;
   --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-segoe: 'Segoe UI', system-ui, sans-serif;
-  --font-sap: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
-  --font-cascadia: Cascadia Code, Consolas, monospace;
+  --font-segoe: 'Manrope', system-ui, sans-serif;
+  --font-sap: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-cascadia: 'JetBrains Mono', Consolas, monospace;
 }
 
 @layer base {
-  /* #app no debe crear una caja extra: los módulos esperan sus elementos directamente en <body> */
+  /* #app no debe crear una caja extra */
   #app { display: contents; }
 
-  /* Equivalente a "* { box-sizing: border-box }" de los originales, para las vistas en Tailwind */
+  /* Equivalente a "* { box-sizing: border-box }" */
   .tw-page * { box-sizing: border-box; }
 }
