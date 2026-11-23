@@ -115,6 +115,16 @@ const routes = [
     alias: ['/typescript-vitest.html', '/manual-typescript-vitest.html'],
     component: () => import('../modules/ts-vitest/TsVitestManualView.vue'),
   },
+  {
+    path: '/power-apps-alto-volumen',
+    name: 'power-apps-alto-volumen',
+    alias: [
+      '/guia_interactiva_power_apps_alto_volumen.html',
+      '/power-apps-alto-volumen.html',
+    ],
+    component: () =>
+      import('../modules/power-apps-alto-volumen/PowerAppsAltoVolumenView.vue'),
+  },
 
   // Alias del propio archivo Home original
   {

@@ -256,4 +256,18 @@ export const homeCards = [
     tags: ['TypeScript Pro', 'Vitest & TDD', 'Simulador Terminal', 'Explorador IDE'],
     bloques: '7 partes · 5 retos prácticos + Checklist Quality Gate (11 hitos)',
   },
+  {
+    id: 'power-apps-alto-volumen',
+    to: '/power-apps-alto-volumen',
+    legacyHref: 'guia_interactiva_power_apps_alto_volumen.html',
+    color: '#7c3aed',
+    colorSoft: 'rgba(124,58,237,0.08)',
+    icon: '⚡',
+    num: 'Guía 18',
+    title: 'Power Apps + Lists: Alto Volumen (+5.000 filas)',
+    description:
+      'Arquitectura y patrones avanzados 100% Power Fx para listas masivas sin cortes de delegación ni bloqueos de 5.000 filas. Diagrama de flujo interactivo, 10 patrones pro, generador Concurrent(), auditor en vivo, semáforo OData y checklist go-live.',
+    tags: ['Power Apps', 'SharePoint Lists', 'Delegación OData', 'Concurrent()'],
+    bloques: '6 herramientas interactivas · Sin flujos externos',
+  },
 ]

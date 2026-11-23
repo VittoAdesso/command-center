@@ -1,6 +1,6 @@
 # Command Center — Proyecto Modular (Vue 3 + Vite + Vue Router + Tailwind CSS)
 
-Versión modularizada del **Centro de Mando** y sus 17 herramientas/guías en una sola aplicación SPA desplegable en Vercel.
+Versión modularizada del **Centro de Mando** y sus 18 herramientas/guías en una sola aplicación SPA desplegable en Vercel.
 
 ## Requisitos y ejecución
 
@@ -30,7 +30,7 @@ Command-Center/
     ├── main.js                       # Entrada: Vue 3 + Vue Router + fuentes npm + Tailwind
     ├── App.vue                       # RouterView + botón flotante de retorno al Home
     ├── router/
-    │   └── index.js                  # 17 rutas + alias .html originales + scrollBehavior
+    │   └── index.js                  # 18 rutas + alias .html originales + scrollBehavior
     ├── styles/
     │   ├── fonts.css                 # Fuentes instaladas por npm (@fontsource/*)
     │   └── main.css                  # Tailwind CSS v4 (prefijo tw:) + tokens de tema
@@ -42,7 +42,7 @@ Command-Center/
     │   ├── HomeCard.vue              # Tarjeta de acceso a módulo en el Home (Tailwind)
     │   └── BackToHome.vue            # Botón discreto «← Centro de Mando» en cada módulo
     ├── data/
-    │   └── homeCards.js              # Metadatos de las 16 tarjetas del Centro de Mando
+    │   └── homeCards.js              # Metadatos de las 18 tarjetas del Centro de Mando
     ├── views/
     │   └── HomeView.vue              # Vista principal (_Centro_de_Mando.html) en Tailwind
     └── modules/
@@ -66,6 +66,9 @@ Command-Center/
         │   ├── TsVitestManualView.vue
         │   ├── CodeBlock.vue         # Resaltador de sintaxis + botón Copiar reactivo
         │   └── tsVitestData.js       # Datos, snippets, archivos IDE, retos y checklist
+        ├── power-apps-alto-volumen/  # Power Apps + Lists: Alto Volumen (+5.000 filas)
+        │   ├── PowerAppsAltoVolumenView.vue
+        │   └── altoVolumenData.js    # Fórmulas Power Fx, auditor, semáforo y checklist
         └── especial/                 # Módulos con diseño e interactividad propios
             ├── ArquitecturaM365View.vue
             ├── BriefingCopilotView.vue

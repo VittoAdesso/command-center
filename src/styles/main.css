@@ -16,6 +16,7 @@
 @source '../modules/rutas';
 @source '../modules/sap-rpa';
 @source '../modules/ts-vitest';
+@source '../modules/power-apps-alto-volumen';
 
 /* ── Paletas (copiadas tal cual de los originales) ────────────────────────── */
 
@@ -107,6 +108,18 @@
   --color-sap-line: var(--sap-line);
   --color-sap-accent: var(--sap-accent);
   --color-sap-accent-soft: var(--sap-accent-soft);
+
+  --color-power-50: #f5f3ff;
+  --color-power-100: #ede9fe;
+  --color-power-200: #ddd6fe;
+  --color-power-300: #c4b5fd;
+  --color-power-400: #a78bfa;
+  --color-power-500: #8b5cf6;
+  --color-power-600: #7c3aed;
+  --color-power-700: #6d28d9;
+  --color-power-800: #5b21b6;
+  --color-power-900: #4c1d95;
+  --color-power-950: #2e1065;
 
   --font-cm-display: 'Bricolage Grotesque', sans-serif;
   --font-cm-body: 'Manrope', sans-serif;
